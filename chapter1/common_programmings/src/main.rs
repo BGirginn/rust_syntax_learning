@@ -1,15 +1,15 @@
 fn main() {
-    let mut x = 5;
-    println!("The value of x is: {x}");
-    x = 6;   // let mut olarak yapmasaydık bu satırda hata alırdık çünkü x değişkeni immutable (değiştirilemez) olurdu.
-    println!("The value of x is: {x}");
-    // mut olsa da olmasa da eğişkenlerin türü her daim sabit olur
+    // let mut x = 5;
+    // println!("The value of x is: {x}");
+    // x = 6;   // let mut olarak yapmasaydık bu satırda hata alırdık çünkü x değişkeni immutable (değiştirilemez) olurdu.
+    // println!("The value of x is: {x}");
+    // // mut olsa da olmasa da eğişkenlerin türü her daim sabit olur
 
     // let mut spaces = "   ";
     // spaces = spaces.len();  // burada spaces başta string iken sonra int olmaya kalkıyor.
 
-    let _spaces = "   ";
-    let _spaces = _spaces.len();  // spaces i tekrar tanımlayıp içine üst satırdaki spacesi koyduk
+    // let _spaces = "   ";
+    // let _spaces = _spaces.len();  // spaces i tekrar tanımlayıp içine üst satırdaki spacesi koyduk
 
 
     // INTEGER TYPES
@@ -66,8 +66,63 @@ fn main() {
 
 
     main2(); // main2 fonksiyonunu çağırıyoruz, bu fonksiyon main fonksiyonunun dışında tanımlandı.
+    print_labeled_measurement(5, 'h');
+
+        let y = {
+        let x = 3;
+        x + 1 // c++ daki return ifadesi gibi, son ifade otomatik olarak return edilir 
+        // bu bloğun son değeri x+1 olur ve return gibi tanımlanacak yerde sonuna noktalı virgül falan koymazsın
+    };
+    println!("The value of y is: {y}");
+
+    // plus_one fonksiyonu çağrılıyor ve 5 değeri parametre olarak gönderiliyor
+    let x = plus_one(5);
+    println!("The value of x is: {x}");
+
+    // plus_one fonksiyonu: bir i32 parametre alır ve i32 döndürür
+    // x parametresine 1 ekleyip sonucu döndürür (return anahtar kelimesi kullanmadan)
+    fn plus_one(x: i32) -> i32 {
+        x + 1  // son ifade noktalı virgül olmadan yazıldığı için otomatik return edilir
+    }
+
+
+    // loop {
+    //     println!("again!");
+    // }
+
+    
+        let mut count = 0;
+    'counting_up: loop {
+        println!("count = {count}");
+        let mut remaining = 10;
+
+        loop {
+            println!("remaining = {remaining}");
+            if remaining == 9 {
+                break;
+            }
+            if count == 2 {
+                break 'counting_up;
+            }
+            remaining -= 1;
+        }
+
+        count += 1;
+    }
+    println!("End count = {count}");
+
+    for number in (1..4).rev()  // bu kodda 1'den 3'e kadar olan sayıları ters sırada döngüye alır ve ekrana yazdırır 
+    {
+        println!("{number}!");
+    }
+    println!("LIFTOFF!!!");
 }
 
 pub fn main2() {
     println!("Hello from main2!");
+}
+
+
+fn print_labeled_measurement(value: i32, unit_label: char) {
+    println!("The measurement is: {value}{unit_label}");
 }
