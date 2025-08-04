@@ -3,7 +3,7 @@ fn main() {
     // println!("The value of x is: {x}");
     // x = 6;   // let mut olarak yapmasaydık bu satırda hata alırdık çünkü x değişkeni immutable (değiştirilemez) olurdu.
     // println!("The value of x is: {x}");
-    // // mut olsa da olmasa da eğişkenlerin türü her daim sabit olur
+    // mut olsa da olmasa da eğişkenlerin türü her daim sabit olur
 
     // let mut spaces = "   ";
     // spaces = spaces.len();  // burada spaces başta string iken sonra int olmaya kalkıyor.
